@@ -17,12 +17,12 @@ type Config struct {
 
 func Load() (*Config, error) {
 	cfg := &Config{
-		Port:        getEnv("PORT", "8080"),
-		Environment: getEnv("ENVIRONMENT", "local"),
-		// DynamoDBEndpoint: getEnv("DYNAMODB_ENDPOINT", "http://localhost:8000"),
-		// DynamoDBTable:    getEnv("DYNAMODB_TABLE", "CreditApplications"),
-		// AWSRegion:        getEnv("AWS_REGION", "us-east-1"),
-		LogLevel: getEnv("LOG_LEVEL", "info"),
+		Port:             getEnv("PORT", "8080"),
+		Environment:      getEnv("ENVIRONMENT", "local"),
+		DynamoDBEndpoint: getEnv("DYNAMODB_ENDPOINT", "http://localhost:8000"),
+		DynamoDBTable:    getEnv("DYNAMODB_TABLE", "CreditApplications"),
+		AWSRegion:        getEnv("AWS_REGION", "us-east-1"),
+		LogLevel:         getEnv("LOG_LEVEL", "info"),
 	}
 
 	if err := cfg.validate(); err != nil {
